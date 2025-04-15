@@ -16,7 +16,7 @@ This project is a backend system built in TypeScript, using PostgreSQL and Prism
 
 ---
 
-## ✅ Tech Stack
+## ✅ Tech stack
 
 - **Node.js / TypeScript**
 - **Express** for the backend API
@@ -28,7 +28,7 @@ This project is a backend system built in TypeScript, using PostgreSQL and Prism
 
 ---
 
-## 📦 Data Model
+## 📦 Data model
 
 - **Card**
   - `id: string`
@@ -44,7 +44,7 @@ This project is a backend system built in TypeScript, using PostgreSQL and Prism
 
 ---
 
-## 🔍 Modeling Decisions
+## 🔍 Modeling decisions
 
 - **PostgreSQL** was chosen for its:
   - Robust support for complex querying
@@ -65,7 +65,7 @@ This project is a backend system built in TypeScript, using PostgreSQL and Prism
 
 ---
 
-## 🔄 Unified Search Endpoint
+## 🔄 Unified search endpoint
 
 Supports flexible filters:
 - Partial name match
@@ -121,11 +121,35 @@ Available filters:
 
 ---
 
-## 🧪 Running Tests
+## 🧪 Running tests
 
 ```bash
 npm install
 npm test
 ```
+
+---
+
+## 🛠️ What can be improved
+
+This project was completed as a technical exercise and learning opportunity — here's a list of areas that could be enhanced or refined:
+
+- **First time using TypeScript**:  
+  I did my best to follow good patterns and conventions, but some design decisions may not yet reflect best practices used in large-scale or production TypeScript projects.
+
+- **Game and rarity configuration**:  
+  Currently, the list of supported games and rarities is kind of hardcoded. These could ideally be loaded from a central configuration file or service to better support dynamic or future games - that's something I didn't explore yet.
+
+- **Search form UX (multi-select)**:  
+  The HTML `<select multiple>` input has limited usability — browsers sometimes restrict multi-select to shift-selection only (rather than ctrl+click). There is no UI hint or option to deselect once selected. A more user-friendly UI (e.g., checkboxes, custom components) could improve this.
+
+- **Rarity ordering**:  
+  The `rarity` table could include a `weight` or `order` column to support filtering logic like “rarity >= Uncommon” or consistent sorting across games.
+
+- **Test coverage**:  
+  The current test suite covers filter logic and basic query construction. More integration tests (e.g., API-level, DAL-level with mocks) could be added. I added only a couple of test I needed during the development.
+
+- **No frontend framework**:  
+  The UI is raw HTML/JS for simplicity. A modern framework like React or Vue would make the search interface more dynamic and user-friendly, but I didn't want to spend too much time on frontend and keep the focus on backend code.
 
 
