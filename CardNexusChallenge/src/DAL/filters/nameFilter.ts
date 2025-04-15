@@ -1,10 +1,9 @@
-import { Prisma } from '@prisma/client';
+import { Prisma } from "@prisma/client";
 
-export function nameFilter(name?: string)
-{
-    if (!name) return null;
+export function nameFilter(name?: string) {
+  if (!name) return null;
 
-    const safeName = name.replace(/[%_]/g, '\\$&');
+  const safeName = name.replace(/[%_]/g, "\\$&");
 
-    return Prisma.sql`card.name ILIKE ${'%' + safeName + '%'}`;
+  return Prisma.sql`card.name ILIKE ${"%" + safeName + "%"}`;
 }

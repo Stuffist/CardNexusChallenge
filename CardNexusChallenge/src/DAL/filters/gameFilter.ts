@@ -1,6 +1,5 @@
-import { Prisma } from '@prisma/client';
+import { Prisma } from "@prisma/client";
 
-export function gameFilter(game?: string)
-{
-    return game ? Prisma.sql`card.game = ${game}` : null;
+export function gameFilter(game?: string) {
+  return game ? Prisma.sql`card.game = ${game}` : null;
 }

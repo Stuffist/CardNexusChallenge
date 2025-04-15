@@ -1,8 +1,8 @@
-import { Router } from 'express';
+import { Router } from "express";
 const router = Router();
 
-router.get('/', (_req, res) => {
-    res.send(`
+router.get("/", (_req, res) => {
+  res.send(`
     <html>
     <head><title>Card Search Test</title></head>
     <body>
