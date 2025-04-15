@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Card {
+  @@map("card")
+
+  id        String   @id
+  name      String
+  game      GameType
+  createdAt DateTime  @default(now())
+
+  rarityId  Int
+  rarity    Rarity    @relation(fields: [rarityId], references: [id])
+
+  gamedata  Json?
+
+  @@index([game])
+  @@index([rarityId])
+}
+
+model Rarity {
+  @@map("rarity")
+
+  id     Int       @id @default(autoincrement())
+  name   String
+  game   GameType
+  cards  Card[]
+
+  @@unique([name, game])
+  @@index([game])
+}
+
+enum GameType {
+  MTG
+  Lorcana
+}
+
+enum MTGColor {
+  U
+  B
+  G
+  R
+  W
+}

@@ -1,0 +1,34 @@
+{
+  "name": "cardnexuschallenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/routes/index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "test": "jest",
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "debug": "node --inspect=0.0.0.0:9229 -r ts-node/register src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.0",
+    "eslint": "^9.24.0",
+    "prisma": "^6.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "zod": "^3.24.2"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/dbseed.ts"
+  }
+}

@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.2191419">
+  <ItemGroup>
+    <Folder Include="data\" />
+    <Folder Include="src\DAL\filters\" />
+    <Folder Include="tests\card\" />
+  </ItemGroup>
+</Project>
