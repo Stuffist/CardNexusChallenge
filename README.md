@@ -65,6 +65,24 @@ This project is a backend system built in TypeScript, using PostgreSQL and Prism
 
 ---
 
+## ⚙️ Performance considerations
+
+To ensure the backend performs well even as more games and cards are added, several optimizations were considered:
+
+### ✅ PostgreSQL Indexing
+- A **GIN index** is used on the `gamedata` JSONB column, allowing efficient filtering on dynamic fields like `color` and `ink_cost`.
+- Indexes on `game` and `rarityId` support fast filtering by game and joining rarity data.
+
+### 🧠 Application-level Caching (Potential Improvements)
+- **Rarity list caching** could be done in memory since rarities are rarely updated. This would avoid repeated database hits when importing or filtering cards.
+- **Search filters** (e.g. repeated queries with identical filters) could be cached short-term in memory (e.g., with `node-cache`) or externally via Redis if scaling out.
+- **Form data (like rarities)** could be cached at startup or behind a dedicated `/config` endpoint.
+
+These techniques can be introduced progressively depending on traffic volume and data size.
+
+
+---
+
 ## 🔄 Unified search endpoint
 
 Supports flexible filters:
@@ -139,6 +157,9 @@ This project was completed as a technical exercise and learning opportunity — 
 
 - **Game and rarity configuration**:  
   Currently, the list of supported games and rarities is kind of hardcoded. These could ideally be loaded from a central configuration file or service to better support dynamic or future games - that's something I didn't explore yet.
+
+- **Caching strategy**:  
+  As mentionned in the Performance chapter earlier, some little tweaks can be added to cache some data and fetch them only once. Also we could consider in the long run an actual cache layer over the DB if needed (can be added easily thanks to the repository architecture).
 
 - **Search form UX (multi-select)**:  
   The HTML `<select multiple>` input has limited usability — browsers sometimes restrict multi-select to shift-selection only (rather than ctrl+click). There is no UI hint or option to deselect once selected. A more user-friendly UI (e.g., checkboxes, custom components) could improve this.
