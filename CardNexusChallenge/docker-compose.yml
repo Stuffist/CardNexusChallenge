@@ -16,7 +16,7 @@ services:
       - ./prisma/partitioned_card_setup.sql:/docker-entrypoint-initdb.d/partitioned_card_setup.sql:ro
 
   backend:
-    build: .
+    image: stuffist/cardnexuschallenge-backend:latest
     container_name: cardnexus-backend
     depends_on:
       - db

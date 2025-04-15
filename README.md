@@ -8,7 +8,7 @@ This project is a backend system built in TypeScript, using PostgreSQL and Prism
 
 - **Start everything with Docker Compose**:
   ```bash
-  docker-compose up --build
+  docker-compose up
   ```
 - Once ready, open [search form](http://localhost:3000)
 
