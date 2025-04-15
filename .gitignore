@@ -1,0 +1,38 @@
+# Node dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+lib/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VS Code
+.vscode/
+.history/
+
+
+# Coverage output
+coverage/
+
+# Prisma generated files
+.prisma/
+*.db
+
+# Docker
+*.local
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Jest cache
+jest-cache/
+jest-coverage/
